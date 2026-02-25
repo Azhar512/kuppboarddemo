@@ -57,17 +57,29 @@
             align-items: center;
             justify-content: space-between;
             padding: 14px 50px;
-            background: #fff;
-            position: sticky;
+            background: transparent;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 9999;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s, border-bottom 0.3s;
+        }
+
+        .header.scrolled {
+            background: #fff;
             border-bottom: 1px solid var(--border);
         }
 
         .header-logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 900;
             letter-spacing: 5px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .header.scrolled .header-logo {
             color: var(--navy);
         }
 
@@ -78,11 +90,15 @@
 
         .header-nav a {
             font-weight: 700;
-            font-size: 13px;
+            font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--navy);
+            color: #fff;
             transition: 0.2s;
+        }
+
+        .header.scrolled .header-nav a {
+            color: var(--navy);
         }
 
         .header-nav a:hover {
@@ -93,8 +109,14 @@
             display: flex;
             gap: 18px;
             align-items: center;
-            font-size: 18px;
+            font-size: 20px;
+            color: #fff;
             cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .header.scrolled .header-icons {
+            color: var(--navy);
         }
 
         /* ===== HERO ===== */
@@ -444,50 +466,77 @@
             object-fit: cover;
         }
 
-        /* ===== SOCIAL PROOF / UGC ===== */
-        .ugc {
-            background: var(--navy);
-            padding: 80px 50px;
-            color: #fff;
-            text-align: center;
+        /* ===== FULL WIDTH VIDEO ===== */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .ugc h2 {
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .video-content h2 {
             font-size: 42px;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            /* semi-transparent text */
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .ugc .hashtag {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--blue);
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        .ugc-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .ugc-grid img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 2px;
-            transition: 0.3s;
+        .video-content .auth-btn {
+            display: inline-block;
+            background: var(--blue);
+            color: #000;
+            padding: 16px 40px;
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            transition: transform 0.3s;
             cursor: pointer;
+            border: none;
         }
 
-        .ugc-grid img:hover {
-            opacity: 0.8;
-            transform: scale(1.03);
+        .video-content .auth-btn:hover {
+            transform: translateY(-2px);
         }
+
 
         /* ===== PRESS QUOTES ===== */
         .press-quotes {
@@ -883,7 +932,7 @@
                     <div class="bs-name">CLOUD SLEEPSUIT</div>
                     <div class="bs-desc">Our signature organic cotton sleepsuit that keeps baby at the perfect
                         temperature all night long.</div>
-                    <a href="#" class="bs-link">DISCOVER →</a>
+                    <a href="#" class="bs-link">ADD TO CART →</a>
                 </div>
             </div>
             <div class="bs-card">
@@ -895,7 +944,7 @@
                     <div class="bs-name">ESSENTIALS BUNDLE</div>
                     <div class="bs-desc">The complete baby essentials pack: 3 sleepsuits, 2 bodysuits, and our signature
                         swaddle blanket.</div>
-                    <a href="#" class="bs-link">DISCOVER →</a>
+                    <a href="#" class="bs-link">ADD TO CART →</a>
                 </div>
             </div>
             <div class="bs-card">
@@ -907,7 +956,7 @@
                     <div class="bs-name">ORGANIC BODYSUIT</div>
                     <div class="bs-desc">Ultra-soft bodysuit designed for sensitive skin. Chemical-free and
                         hypoallergenic comfort.</div>
-                    <a href="#" class="bs-link">DISCOVER →</a>
+                    <a href="#" class="bs-link">ADD TO CART →</a>
                 </div>
             </div>
         </div>
@@ -934,7 +983,7 @@
                 <div class="prod-card-body">
                     <div class="prod-card-name">CLOUD SLEEPSUIT</div>
                     <div class="prod-card-price">$34.00</div>
-                    <div class="prod-discover">DISCOVER</div>
+                    <div class="prod-discover">ADD TO CART</div>
                 </div>
             </div>
             <div class="prod-card">
@@ -944,7 +993,7 @@
                 <div class="prod-card-body">
                     <div class="prod-card-name">THERMAL ONESIE</div>
                     <div class="prod-card-price">$29.00</div>
-                    <div class="prod-discover">DISCOVER</div>
+                    <div class="prod-discover">ADD TO CART</div>
                 </div>
             </div>
             <div class="prod-card">
@@ -954,7 +1003,7 @@
                 <div class="prod-card-body">
                     <div class="prod-card-name">SWADDLE BLANKET</div>
                     <div class="prod-card-price">$24.00</div>
-                    <div class="prod-discover">DISCOVER</div>
+                    <div class="prod-discover">ADD TO CART</div>
                 </div>
             </div>
             <div class="prod-card">
@@ -964,7 +1013,7 @@
                 <div class="prod-card-body">
                     <div class="prod-card-name">ESSENTIALS BUNDLE</div>
                     <div class="prod-card-price">$79.00</div>
-                    <div class="prod-discover">DISCOVER</div>
+                    <div class="prod-discover">ADD TO CART</div>
                 </div>
             </div>
             <div class="prod-card">
@@ -974,7 +1023,7 @@
                 <div class="prod-card-body">
                     <div class="prod-card-name">ORGANIC BODYSUIT</div>
                     <div class="prod-card-price">$26.00</div>
-                    <div class="prod-discover">DISCOVER</div>
+                    <div class="prod-discover">ADD TO CART</div>
                 </div>
             </div>
             <div class="prod-card">
@@ -999,7 +1048,7 @@
                 keeping them at the perfect temperature.</p>
             <p style="margin-bottom:30px;">Our GOTS-certified cotton is grown without synthetic pesticides, processed
                 without harmful chemicals, and tested against 1,000+ known skin irritants.</p>
-            <a href="#" class="auth-btn">LEARN MORE</a>
+            <a href="product.html" class="auth-btn">LEARN MORE</a>
         </div>
         <div class="auth-img">
             <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=700"
@@ -1007,75 +1056,17 @@
         </div>
     </section>
 
-    <!-- ===== 6. UGC / SOCIAL PROOF ===== -->
-    <section class="ugc">
-        <h2>1 MILLION KUPPBOARD FAMILIES</h2>
-        <span class="hashtag">#kuppboard</span>
-        <div class="ugc-grid">
-            <img src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC1">
-            <img src="https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC2">
-            <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC3">
-            <img src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC4">
-            <img src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC5">
-            <img src="https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC6">
-            <img src="https://images.pexels.com/photos/6764008/pexels-photo-6764008.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC7">
-            <img src="https://images.pexels.com/photos/4210337/pexels-photo-4210337.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC8">
-            <img src="https://images.pexels.com/photos/4439425/pexels-photo-4439425.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC9">
-            <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=300"
-                alt="UGC10">
-        </div>
-    </section>
-
-    <!-- ===== 7. PRESS QUOTES ===== -->
-    <section class="press-quotes">
-        <img class="pq-logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Forbes_logo.svg/200px-Forbes_logo.svg.png"
-            alt="Forbes">
-        <div class="pq-text">"Here's What Your Baby's Skin Has Been Waiting For — Kuppboard Redefines Organic Baby
-            Clothing."</div>
-        <div class="pq-dots">
-            <span class="active"></span>
-            <span></span>
-            <span></span>
-        </div>
-    </section>
-
-    <!-- ===== 8. MAGAZINE / BLOG ===== -->
-    <div class="sec-head">
-        <h2>KUPPBOARD MAGAZINE</h2>
-    </div>
-    <section class="magazine">
-        <div class="mag-grid">
-            <div class="mag-card">
-                <div class="mag-card-img"><img
-                        src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=500"
-                        alt="Blog1"></div>
-                <div class="mag-card-tag">SCIENCE</div>
-                <div class="mag-card-title">Why Organic Cotton Is The Only Choice For Newborn Skin</div>
-            </div>
-            <div class="mag-card">
-                <div class="mag-card-img"><img
-                        src="https://images.pexels.com/photos/6764008/pexels-photo-6764008.jpeg?auto=compress&cs=tinysrgb&w=500"
-                        alt="Blog2"></div>
-                <div class="mag-card-tag">PARENTING</div>
-                <div class="mag-card-title">5 Sleep Tips Every New Parent Needs To Know</div>
-            </div>
-            <div class="mag-card">
-                <div class="mag-card-img"><img
-                        src="https://images.pexels.com/photos/4210337/pexels-photo-4210337.jpeg?auto=compress&cs=tinysrgb&w=500"
-                        alt="Blog3"></div>
-                <div class="mag-card-tag">SUSTAINABILITY</div>
-                <div class="mag-card-title">How We Source Our GOTS-Certified Organic Cotton</div>
-            </div>
+    <!-- ===== 6. FULL WIDTH VIDEO / ADD TO CART ===== -->
+    <section class="video-container">
+        <!-- Using a placeholder video from Pexels, replace src with actual video URL -->
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/3011387/3011387-hd_1920_1080_24fps.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-content">
+            <h2>EXPERIENCE KUPPBOARD</h2>
+            <button class="auth-btn">ADD TO CART</button>
         </div>
     </section>
 
@@ -1134,6 +1125,16 @@
                 d.classList.add('active');
             });
         });
+    </script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+    var header = document.querySelector('.header');
+    if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+    } else {
+    header.classList.remove('scrolled');
+    }
+    });
     </script>
 </body>
 
