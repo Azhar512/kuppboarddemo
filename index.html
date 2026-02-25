@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUPPBOARD | Premium Baby Clothing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #001B34;
+            --blue: #52BBE8;
+            --grey: #F6F6F6;
+            --border: #e1e1e9;
+            --dark: #0a0a2e;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announce {
+            background: var(--navy);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 50px;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: var(--navy);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .header-nav a {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+            transition: 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--blue);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 90px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--blue);
+            color: #000;
+            padding: 16px 45px;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* ===== PRESS LOGOS SLIDER ===== */
+        .logos {
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logos-track {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+            animation: scroll 20s linear infinite;
+            width: max-content;
+        }
+
+        .logos-track img {
+            height: 22px;
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .sec-head {
+            text-align: center;
+            padding: 80px 20px 50px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sec-head h2 {
+            font-size: 38px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .sec-head p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== BEST SELLERS ===== */
+        .bestsellers {
+            padding: 0 50px 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .bs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .bs-card {
+            background: var(--grey);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .bs-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .bs-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        .bs-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .bs-card:hover .bs-img img {
+            transform: scale(1.05);
+        }
+
+        .bs-body {
+            padding: 25px 30px 30px;
+        }
+
+        .bs-brand {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .bs-name {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .bs-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .bs-link {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bs-link:hover {
+            gap: 10px;
+        }
+
+        /* ===== TABBED PRODUCT GRID ===== */
+        .products-sec {
+            background: var(--grey);
+            padding: 80px 0;
+        }
+
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 2px solid var(--border);
+            padding: 10px 25px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.2s;
+            color: var(--navy);
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--navy);
+            color: #fff;
+            border-color: var(--navy);
+        }
+
+        .prod-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .prod-card {
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .prod-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .prod-card-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        .prod-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .prod-card-body {
+            padding: 20px;
+        }
+
+        .prod-card-name {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .prod-card-price {
+            font-size: 14px;
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .prod-discover {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--blue);
+        }
+
+        /* ===== BRAND AUTHORITY ===== */
+        .authority {
+            display: flex;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 50px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .auth-text {
+            flex: 1;
+        }
+
+        .auth-text h2 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .auth-text p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .auth-text .auth-btn {
+            display: inline-block;
+            background: var(--blue);
+            color: #000;
+            padding: 14px 35px;
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+        }
+
+        .auth-img {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .auth-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== SOCIAL PROOF / UGC ===== */
+        .ugc {
+            background: var(--navy);
+            padding: 80px 50px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .ugc h2 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .ugc .hashtag {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--blue);
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .ugc-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .ugc-grid img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 2px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .ugc-grid img:hover {
+            opacity: 0.8;
+            transform: scale(1.03);
+        }
+
+        /* ===== PRESS QUOTES ===== */
+        .press-quotes {
+            padding: 80px 50px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .press-quotes .pq-logo {
+            height: 30px;
+            margin: 0 auto 25px;
+            opacity: 0.5;
+        }
+
+        .press-quotes .pq-text {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--navy);
+        }
+
+        .pq-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .pq-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            cursor: pointer;
+        }
+
+        .pq-dots span.active {
+            background: var(--navy);
+        }
+
+        /* ===== MAGAZINE / BLOG ===== */
+        .magazine {
+            padding: 80px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .mag-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .mag-card {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .mag-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .mag-card-img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .mag-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mag-card-tag {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .mag-card-title {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            background: var(--grey);
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 36px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .nl-form {
+            display: flex;
+            gap: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .nl-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--border);
+            border-right: none;
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .nl-form input:focus {
+            border-color: var(--blue);
+        }
+
+        .nl-form button {
+            background: var(--blue);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-family: inherit;
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 60px 50px 30px;
+        }
+
+        .f-grid {
+            display: flex;
+            gap: 60px;
+            max-width: 1300px;
+            margin: 0 auto 40px;
+            flex-wrap: wrap;
+        }
+
+        .f-col {
+            min-width: 150px;
+        }
+
+        .f-col h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .f-col a {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .f-col a:hover {
+            color: #fff;
+        }
+
+        .f-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1a1a4a;
+            padding-top: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .f-social {
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+        }
+
+        .f-social a {
+            color: #888;
+            transition: 0.2s;
+        }
+
+        .f-social a:hover {
+            color: #fff;
+        }
+
+        .f-pay {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .f-pay span {
+            background: #1a1a4a;
+            color: #888;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .f-copy {
+            font-size: 10px;
+            color: #555;
+        }
+
+        /* Promo tab */
+        .ptab {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: right center;
+            background: #D0021B;
+            color: #fff;
+            padding: 8px 18px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 9990;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:1024px) {
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .bs-grid,
+            .prod-grid,
+            .mag-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .authority {
+                flex-direction: column;
+            }
+
+            .ugc-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .header {
+                padding: 12px 20px;
+            }
+
+            .header-nav {
+                gap: 18px;
+            }
+        }
+
+        @media(max-width:600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .bs-grid,
+            .prod-grid,
+            .mag-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ugc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .sec-head h2 {
+                font-size: 28px;
+            }
+
+            .authority {
+                padding: 60px 20px;
+            }
+
+            .f-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announce">FREE SHIPPING + 30 DAY MONEY BACK GUARANTEE</div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-logo">KUPPBOARD</div>
+        <div class="header-nav">
+            <a href="product.html">Products</a>
+            <a href="#">Magazine</a>
+            <a href="#">Reviews</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="header-icons">
+            <span>👤</span>
+            <span>🛒<sup style="font-size:10px;color:var(--blue);font-weight:900;">0</sup></span>
+        </div>
+    </div>
+
+    <!-- Promo Tab -->
+    <div class="ptab">GET 20% OFF</div>
+
+    <!-- ===== 1. HERO SECTION ===== -->
+    <section class="hero">
+        <img class="hero-bg"
+            src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Baby">
+        <div class="hero-content">
+            <h1>PREMIUM COMFORT FOR YOUR BABY</h1>
+            <a href="#products" class="hero-btn">OUR PRODUCTS</a>
+        </div>
+    </section>
+
+    <!-- ===== 2. PRESS LOGOS SLIDER ===== -->
+    <div class="logos">
+        <div class="logos-track">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Forbes_logo.svg/200px-Forbes_logo.svg.png"
+                alt="Forbes">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Vogue_logo.svg/200px-Vogue_logo.svg.png"
+                alt="Vogue">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Harper%27s_Bazaar_Logo.svg/200px-Harper%27s_Bazaar_Logo.svg.png"
+                alt="Bazaar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cosmopolitan_logo.svg/200px-Cosmopolitan_logo.svg.png"
+                alt="Cosmo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/GQ_logo.svg/200px-GQ_logo.svg.png"
+                alt="GQ">
+            <!-- Duplicate for infinite scroll -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Forbes_logo.svg/200px-Forbes_logo.svg.png"
+                alt="Forbes">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Vogue_logo.svg/200px-Vogue_logo.svg.png"
+                alt="Vogue">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Harper%27s_Bazaar_Logo.svg/200px-Harper%27s_Bazaar_Logo.svg.png"
+                alt="Bazaar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Cosmopolitan_logo.svg/200px-Cosmopolitan_logo.svg.png"
+                alt="Cosmo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/GQ_logo.svg/200px-GQ_logo.svg.png"
+                alt="GQ">
+        </div>
+    </div>
+
+    <!-- ===== 3. BEST SELLERS ===== -->
+    <div class="sec-head">
+        <h2>BEST SELLERS</h2>
+    </div>
+    <div class="bestsellers">
+        <div class="bs-grid">
+            <div class="bs-card">
+                <div class="bs-img"><img
+                        src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="Cloud Sleepsuit"></div>
+                <div class="bs-body">
+                    <div class="bs-brand">KUPPBOARD</div>
+                    <div class="bs-name">CLOUD SLEEPSUIT</div>
+                    <div class="bs-desc">Our signature organic cotton sleepsuit that keeps baby at the perfect
+                        temperature all night long.</div>
+                    <a href="#" class="bs-link">DISCOVER →</a>
+                </div>
+            </div>
+            <div class="bs-card">
+                <div class="bs-img"><img
+                        src="https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="Bundle Pack"></div>
+                <div class="bs-body">
+                    <div class="bs-brand">KUPPBOARD</div>
+                    <div class="bs-name">ESSENTIALS BUNDLE</div>
+                    <div class="bs-desc">The complete baby essentials pack: 3 sleepsuits, 2 bodysuits, and our signature
+                        swaddle blanket.</div>
+                    <a href="#" class="bs-link">DISCOVER →</a>
+                </div>
+            </div>
+            <div class="bs-card">
+                <div class="bs-img"><img
+                        src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="Bodysuit"></div>
+                <div class="bs-body">
+                    <div class="bs-brand">KUPPBOARD</div>
+                    <div class="bs-name">ORGANIC BODYSUIT</div>
+                    <div class="bs-desc">Ultra-soft bodysuit designed for sensitive skin. Chemical-free and
+                        hypoallergenic comfort.</div>
+                    <a href="#" class="bs-link">DISCOVER →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 4. TABBED PRODUCTS ===== -->
+    <section class="products-sec" id="products">
+        <div class="sec-head" style="padding-top:0;">
+            <h2>ALL PRODUCTS</h2>
+        </div>
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="filterTab(this)">SLEEPWEAR</button>
+            <button class="tab-btn" onclick="filterTab(this)">BODYSUITS</button>
+            <button class="tab-btn" onclick="filterTab(this)">ACCESSORIES</button>
+            <button class="tab-btn" onclick="filterTab(this)">ORGANIC</button>
+            <button class="tab-btn" onclick="filterTab(this)">GIFT SETS</button>
+            <button class="tab-btn" onclick="filterTab(this)">BUNDLES</button>
+        </div>
+        <div class="prod-grid">
+            <div class="prod-card">
+                <div class="prod-card-img"><img
+                        src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt="P1"></div>
+                <div class="prod-card-body">
+                    <div class="prod-card-name">CLOUD SLEEPSUIT</div>
+                    <div class="prod-card-price">$34.00</div>
+                    <div class="prod-discover">DISCOVER</div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-card-img"><img
+                        src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt="P2"></div>
+                <div class="prod-card-body">
+                    <div class="prod-card-name">THERMAL ONESIE</div>
+                    <div class="prod-card-price">$29.00</div>
+                    <div class="prod-discover">DISCOVER</div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-card-img"><img
+                        src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt="P3"></div>
+                <div class="prod-card-body">
+                    <div class="prod-card-name">SWADDLE BLANKET</div>
+                    <div class="prod-card-price">$24.00</div>
+                    <div class="prod-discover">DISCOVER</div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-card-img"><img
+                        src="https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt="P4"></div>
+                <div class="prod-card-body">
+                    <div class="prod-card-name">ESSENTIALS BUNDLE</div>
+                    <div class="prod-card-price">$79.00</div>
+                    <div class="prod-discover">DISCOVER</div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-card-img"><img
+                        src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt="P5"></div>
+                <div class="prod-card-body">
+                    <div class="prod-card-name">ORGANIC BODYSUIT</div>
+                    <div class="prod-card-price">$26.00</div>
+                    <div class="prod-discover">DISCOVER</div>
+                </div>
+            </div>
+            <div class="prod-card">
+                <div class="prod-card-img"><img
+                        src="https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg?auto=compress&cs=tinysrgb&w=400"
+                        alt="P6"></div>
+                <div class="prod-card-body">
+                    <div class="prod-card-name">COMFORT SOCKS SET</div>
+                    <div class="prod-card-price">$14.00</div>
+                    <div class="prod-discover">DISCOVER</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. BRAND AUTHORITY ===== -->
+    <section class="authority">
+        <div class="auth-text">
+            <h2>SPECIFICALLY DESIGNED FOR BABY COMFORT</h2>
+            <p>Baby comfort should go beyond the basic. That's why we formulated Kuppboard with advanced organic textile
+                science. Every thread, every stitch, every dye is chosen to protect your baby's sensitive skin while
+                keeping them at the perfect temperature.</p>
+            <p style="margin-bottom:30px;">Our GOTS-certified cotton is grown without synthetic pesticides, processed
+                without harmful chemicals, and tested against 1,000+ known skin irritants.</p>
+            <a href="#" class="auth-btn">LEARN MORE</a>
+        </div>
+        <div class="auth-img">
+            <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Science">
+        </div>
+    </section>
+
+    <!-- ===== 6. UGC / SOCIAL PROOF ===== -->
+    <section class="ugc">
+        <h2>1 MILLION KUPPBOARD FAMILIES</h2>
+        <span class="hashtag">#kuppboard</span>
+        <div class="ugc-grid">
+            <img src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC1">
+            <img src="https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC2">
+            <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC3">
+            <img src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC4">
+            <img src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC5">
+            <img src="https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC6">
+            <img src="https://images.pexels.com/photos/6764008/pexels-photo-6764008.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC7">
+            <img src="https://images.pexels.com/photos/4210337/pexels-photo-4210337.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC8">
+            <img src="https://images.pexels.com/photos/4439425/pexels-photo-4439425.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC9">
+            <img src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=300"
+                alt="UGC10">
+        </div>
+    </section>
+
+    <!-- ===== 7. PRESS QUOTES ===== -->
+    <section class="press-quotes">
+        <img class="pq-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Forbes_logo.svg/200px-Forbes_logo.svg.png"
+            alt="Forbes">
+        <div class="pq-text">"Here's What Your Baby's Skin Has Been Waiting For — Kuppboard Redefines Organic Baby
+            Clothing."</div>
+        <div class="pq-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ===== 8. MAGAZINE / BLOG ===== -->
+    <div class="sec-head">
+        <h2>KUPPBOARD MAGAZINE</h2>
+    </div>
+    <section class="magazine">
+        <div class="mag-grid">
+            <div class="mag-card">
+                <div class="mag-card-img"><img
+                        src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=500"
+                        alt="Blog1"></div>
+                <div class="mag-card-tag">SCIENCE</div>
+                <div class="mag-card-title">Why Organic Cotton Is The Only Choice For Newborn Skin</div>
+            </div>
+            <div class="mag-card">
+                <div class="mag-card-img"><img
+                        src="https://images.pexels.com/photos/6764008/pexels-photo-6764008.jpeg?auto=compress&cs=tinysrgb&w=500"
+                        alt="Blog2"></div>
+                <div class="mag-card-tag">PARENTING</div>
+                <div class="mag-card-title">5 Sleep Tips Every New Parent Needs To Know</div>
+            </div>
+            <div class="mag-card">
+                <div class="mag-card-img"><img
+                        src="https://images.pexels.com/photos/4210337/pexels-photo-4210337.jpeg?auto=compress&cs=tinysrgb&w=500"
+                        alt="Blog3"></div>
+                <div class="mag-card-tag">SUSTAINABILITY</div>
+                <div class="mag-card-title">How We Source Our GOTS-Certified Organic Cotton</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 9. NEWSLETTER ===== -->
+    <section class="newsletter">
+        <h2>JOIN THE KUPPBOARD CLUB</h2>
+        <p>Get exclusive offers, parenting tips, and early access to new products.</p>
+        <div class="nl-form">
+            <input type="email" placeholder="Enter your email...">
+            <button>SUBSCRIBE</button>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="f-grid">
+            <div class="f-col">
+                <h4>Shop</h4><a href="#">Sleepsuits</a><a href="#">Bodysuits</a><a href="#">Bundles</a><a href="#">Gift
+                    Sets</a><a href="#">New Arrivals</a>
+            </div>
+            <div class="f-col">
+                <h4>Company</h4><a href="#">Our Story</a><a href="#">The Science</a><a href="#">Sustainability</a><a
+                    href="#">Careers</a>
+            </div>
+            <div class="f-col">
+                <h4>Support</h4><a href="#">FAQ</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Size
+                    Guide</a><a href="#">Contact Us</a>
+            </div>
+            <div class="f-col">
+                <h4>Follow Us</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a><a
+                    href="#">YouTube</a><a href="#">Pinterest</a>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <div class="f-social">
+                <a href="#">📘</a><a href="#">📸</a><a href="#">🎵</a><a href="#">▶️</a>
+            </div>
+            <div class="f-pay">
+                <span>VISA</span><span>MASTERCARD</span><span>PAYPAL</span><span>APPLE PAY</span>
+            </div>
+            <div class="f-copy">© 2026 Kuppboard. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab filter (visual only for demo)
+        function filterTab(btn) {
+            document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+        }
+
+        // Press quote dots (visual only)
+        document.querySelectorAll('.pq-dots span').forEach(function (d, i) {
+            d.addEventListener('click', function () {
+                document.querySelectorAll('.pq-dots span').forEach(function (s) { s.classList.remove('active'); });
+                d.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

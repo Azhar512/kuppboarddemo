@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUPPBOARD | Organic Cloud Sleepsuit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #050446;
+            --blue: #00AEEF;
+            --red: #D0021B;
+            --bg-grey: #F1F1F1;
+            --border: #e1e1e9;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announce {
+            background: var(--navy);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 50px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 9999;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: var(--navy);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-nav a:hover {
+            color: var(--blue);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        /* ===== HERO / PRODUCT TOP ===== */
+        .product-hero {
+            display: flex;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+            min-height: calc(100vh - 100px);
+        }
+
+        /* Gallery */
+        .product-gallery {
+            flex: 0 0 55%;
+            padding: 30px 30px 30px 0;
+            position: relative;
+        }
+
+        .main-slide {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: var(--bg-grey);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        .dots span {
+            width: 40px;
+            height: 3px;
+            background: #d0d0d0;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .dots span.active {
+            background: var(--navy);
+        }
+
+        .thumbs {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .thumbs img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.5;
+            transition: 0.2s;
+        }
+
+        .thumbs img.active {
+            border-color: var(--navy);
+            opacity: 1;
+        }
+
+        /* Info Sidebar */
+        .product-info {
+            flex: 0 0 45%;
+            padding: 40px 0 40px 50px;
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+            align-self: flex-start;
+        }
+
+        .p-brand {
+            color: var(--blue);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .p-title {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .p-subtitle {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .p-stars {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .p-stars .stars {
+            color: #f5a623;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .p-stars .cnt {
+            font-size: 13px;
+            color: #666;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 18px;
+        }
+
+        .tab {
+            padding: 12px 18px 12px 0;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            color: #b0b0b0;
+            letter-spacing: 0.5px;
+            transition: 0.2s;
+        }
+
+        .tab.active {
+            color: var(--navy);
+            border-bottom-color: var(--navy);
+        }
+
+        .tab:hover {
+            color: var(--navy);
+        }
+
+        .tab-body {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            min-height: 130px;
+        }
+
+        .tab-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tab-body ul li {
+            padding: 7px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .tab-body ul li::before {
+            content: "✓";
+            color: var(--blue);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        /* Bundles */
+        .bundles {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .bcard {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .bcard:hover,
+        .bcard.sel {
+            border-color: var(--blue);
+            background: #f0faff;
+        }
+
+        .bcard-l {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .radio {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bcard.sel .radio {
+            border-color: var(--blue);
+        }
+
+        .bcard.sel .radio::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        .bcard-qty {
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        .badge {
+            background: var(--blue);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            margin-left: 6px;
+        }
+
+        .bcard-r {
+            text-align: right;
+        }
+
+        .bcard-r .now {
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .bcard-r .was {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .bcard-r .save {
+            display: block;
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        /* ATC */
+        .atc {
+            width: 100%;
+            padding: 20px;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: 0.2s;
+        }
+
+        .atc:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .trust {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px 0;
+            border-top: 1px solid var(--border);
+            font-size: 10px;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== ACCORDION SECTION ===== */
+        .acc-wrap {
+            max-width: 1280px;
+            margin: 60px auto;
+            padding: 0 30px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .acc-left {
+            flex: 1;
+        }
+
+        .acc-right {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            max-height: 600px;
+        }
+
+        .acc-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .acc-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .acc-head {
+            padding: 20px 0;
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+
+        .acc-head::after {
+            content: "+";
+            font-size: 22px;
+            font-weight: 300;
+            transition: 0.2s;
+        }
+
+        .acc-item.open .acc-head::after {
+            content: "−";
+        }
+
+        .acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .acc-item.open .acc-body {
+            max-height: 900px;
+        }
+
+        .acc-inner {
+            padding: 0 0 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Ingredients */
+        .ing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 12px;
+        }
+
+        .ing-item {
+            text-align: center;
+        }
+
+        .ing-circ {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-grey);
+        }
+
+        .ing-circ img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ing-name {
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Comparison */
+        .cmp {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        .cmp th {
+            padding: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 12px;
+            border-bottom: 2px solid var(--border);
+            text-align: center;
+        }
+
+        .cmp th:first-child {
+            text-align: left;
+        }
+
+        .cmp th.hl {
+            color: var(--blue);
+            border-bottom-color: var(--blue);
+        }
+
+        .cmp td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .cmp td:first-child {
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .cmp .yes {
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .cmp .no {
+            color: #bbb;
+        }
+
+        /* ===== VIDEO REVIEWS ===== */
+        .vid-sec {
+            background: var(--bg-grey);
+            padding: 80px 0;
+        }
+
+        .vid-sec h2 {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .vid-row {
+            display: flex;
+            gap: 18px;
+            overflow-x: auto;
+            padding: 0 50px 20px;
+            scrollbar-width: none;
+        }
+
+        .vid-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .vcard {
+            flex: 0 0 200px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .vimg {
+            width: 200px;
+            height: 270px;
+            position: relative;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .vimg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vplay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .vinfo {
+            padding: 12px;
+        }
+
+        .vinfo .vq {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.5;
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        .vinfo .vn {
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        /* ===== CUSTOMER REVIEWS ===== */
+        .rev-sec {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 30px;
+        }
+
+        .rev-sec h2 {
+            font-size: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .star-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 35px;
+            padding: 18px;
+            background: var(--bg-grey);
+            border-radius: 8px;
+        }
+
+        .big-num {
+            font-size: 44px;
+            font-weight: 900;
+        }
+
+        .bars {
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .bar-r {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 3px 0;
+        }
+
+        .bar-r span {
+            font-size: 11px;
+            font-weight: 700;
+            width: 12px;
+        }
+
+        .bar-bg {
+            flex: 1;
+            height: 7px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fl {
+            height: 100%;
+            background: var(--blue);
+            border-radius: 4px;
+        }
+
+        .rcard {
+            border-bottom: 1px solid var(--border);
+            padding: 22px 0;
+        }
+
+        .rcard .rh {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .rcard .rn {
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .rcard .rd {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .rcard .rs {
+            color: #f5a623;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .rbadge {
+            font-size: 9px;
+            background: #e8f8e8;
+            color: #2a9d2a;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .rcard .rt {
+            font-size: 13px;
+            line-height: 1.65;
+            color: #555;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: #fff;
+            padding: 50px 50px 25px;
+        }
+
+        .fgrid {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 35px;
+            max-width: 1280px;
+            margin: 0 auto 35px;
+        }
+
+        .fcol h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .fcol a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 12px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .fcol a:hover {
+            color: #fff;
+        }
+
+        .fbot {
+            text-align: center;
+            border-top: 1px solid #1a1a5a;
+            padding-top: 18px;
+            font-size: 10px;
+            color: #666;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* ===== STICKY BAR ===== */
+        .sbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid var(--border);
+            padding: 12px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9998;
+            transform: translateY(100%);
+            transition: 0.4s ease;
+            box-sizing: border-box;
+        }
+
+        .sbar.show {
+            transform: translateY(0);
+        }
+
+        .sbar-l {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sbar-l img {
+            width: 42px;
+            height: 42px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .sbar-l .st {
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .sbar-l .sp {
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* ===== PROMO TAB ===== */
+        .ptab {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: right center;
+            background: var(--red);
+            color: #fff;
+            padding: 8px 18px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 9990;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:1024px) {
+
+            .product-hero,
+            .acc-wrap {
+                flex-direction: column;
+            }
+
+            .product-gallery,
+            .product-info {
+                flex: unset;
+                width: 100%;
+                padding: 20px !important;
+            }
+
+            .product-info {
+                position: static !important;
+            }
+
+            .p-title {
+                font-size: 32px;
+            }
+
+            .header {
+                padding: 12px 20px;
+            }
+
+            .sbar {
+                padding: 10px 15px;
+            }
+
+            .acc-right {
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announce">FREE SHIPPING + 30 DAY MONEY BACK GUARANTEE</div>
+
+    <!-- Header -->
+    <div class="header">
+        <a href="index.html" style="text-decoration:none;">
+            <div class="header-logo">KUPPBOARD</div>
+        </a>
+        <div class="header-nav">
+            <a href="index.html">Products</a>
+            <a href="#">Magazine</a>
+            <a href="#">Reviews</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="header-icons">
+            <span style="cursor:pointer;">👤</span>
+            <span style="cursor:pointer;">🛒<sup
+                    style="font-size:10px;color:var(--blue);font-weight:900;">0</sup></span>
+        </div>
+    </div>
+
+    <!-- Promo Tab -->
+    <div class="ptab">GET 20% OFF</div>
+
+    <!-- ===== PRODUCT HERO ===== -->
+    <div class="product-hero">
+        <div class="product-gallery">
+            <div class="main-slide">
+                <img id="mainImg"
+                    src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Baby Sleepsuit">
+            </div>
+            <div class="dots">
+                <span class="active" onclick="slide(0)"></span>
+                <span onclick="slide(1)"></span>
+                <span onclick="slide(2)"></span>
+                <span onclick="slide(3)"></span>
+            </div>
+            <div class="thumbs">
+                <img class="active" onclick="slide(0)"
+                    src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="T1">
+                <img onclick="slide(1)"
+                    src="https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="T2">
+                <img onclick="slide(2)"
+                    src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="T3">
+                <img onclick="slide(3)"
+                    src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=120"
+                    alt="T4">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="p-brand">Kuppboard</div>
+            <h1 class="p-title">Cloud Sleepsuit</h1>
+            <p class="p-subtitle">The premium organic cotton sleepsuit that keeps baby at the perfect temperature all
+                night long</p>
+            <div class="p-stars">
+                <span class="stars">★★★★★</span>
+                <span class="cnt">1,240 Reviews</span>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" onclick="stab(0)">Description</div>
+                <div class="tab" onclick="stab(1)">Actions</div>
+                <div class="tab" onclick="stab(2)">Benefits</div>
+                <div class="tab" onclick="stab(3)">How to use</div>
+            </div>
+            <div class="tab-body" id="tp">
+                Our signature Cloud Sleepsuit is crafted from 100% GOTS-certified organic cotton. Designed with
+                thermal-regulation technology, it keeps your baby at the optimal sleeping temperature throughout the
+                night, while staying gentle on sensitive skin.
+            </div>
+
+            <div class="bundles">
+                <div class="bcard sel" onclick="bsel(this)">
+                    <div class="bcard-l">
+                        <div class="radio"></div><span class="bcard-qty">3 Units</span><span class="badge">Most
+                            Popular</span>
+                    </div>
+                    <div class="bcard-r"><span class="now">$79</span><span class="was">$102</span><span class="save">You
+                            Save: $23</span></div>
+                </div>
+                <div class="bcard" onclick="bsel(this)">
+                    <div class="bcard-l">
+                        <div class="radio"></div><span class="bcard-qty">2 Units</span>
+                    </div>
+                    <div class="bcard-r"><span class="now">$58</span><span class="was">$68</span><span class="save">You
+                            Save: $10</span></div>
+                </div>
+                <div class="bcard" onclick="bsel(this)">
+                    <div class="bcard-l">
+                        <div class="radio"></div><span class="bcard-qty">1 Unit</span>
+                    </div>
+                    <div class="bcard-r"><span class="now">$34</span></div>
+                </div>
+            </div>
+
+            <button class="atc" id="mainAtc">ADD TO CART</button>
+            <div class="trust">
+                <span>🔒 Secure Checkout</span>
+                <span>🚚 Free Shipping</span>
+                <span>↩️ 30-Day Returns</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ACCORDION SECTION ===== -->
+    <div class="acc-wrap">
+        <div class="acc-left">
+            <div class="acc-item open">
+                <div class="acc-head" onclick="togAcc(this)">Premium Materials</div>
+                <div class="acc-body">
+                    <div class="acc-inner">
+                        <p>Every thread is sourced from certified organic farms, processed without harsh chemicals.</p>
+                        <div class="ing-grid">
+                            <div class="ing-item">
+                                <div class="ing-circ"><img
+                                        src="https://images.pexels.com/photos/3616956/pexels-photo-3616956.jpeg?auto=compress&cs=tinysrgb&w=200"
+                                        alt="Cotton"></div>
+                                <div class="ing-name">GOTS Cotton</div>
+                            </div>
+                            <div class="ing-item">
+                                <div class="ing-circ"><img
+                                        src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=200"
+                                        alt="Weave"></div>
+                                <div class="ing-name">Air-Flow Weave</div>
+                            </div>
+                            <div class="ing-item">
+                                <div class="ing-circ"><img
+                                        src="https://images.pexels.com/photos/4439425/pexels-photo-4439425.jpeg?auto=compress&cs=tinysrgb&w=200"
+                                        alt="Dyes"></div>
+                                <div class="ing-name">Safe Dyes</div>
+                            </div>
+                            <div class="ing-item">
+                                <div class="ing-circ"><img
+                                        src="https://images.pexels.com/photos/6764008/pexels-photo-6764008.jpeg?auto=compress&cs=tinysrgb&w=200"
+                                        alt="Thread"></div>
+                                <div class="ing-name">400+ Thread</div>
+                            </div>
+                            <div class="ing-item">
+                                <div class="ing-circ"><img
+                                        src="https://images.pexels.com/photos/4210337/pexels-photo-4210337.jpeg?auto=compress&cs=tinysrgb&w=200"
+                                        alt="Bamboo"></div>
+                                <div class="ing-name">Bamboo Blend</div>
+                            </div>
+                            <div class="ing-item">
+                                <div class="ing-circ"><img
+                                        src="https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg?auto=compress&cs=tinysrgb&w=200"
+                                        alt="Elastic"></div>
+                                <div class="ing-name">Soft Elastic</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="acc-item">
+                <div class="acc-head" onclick="togAcc(this)">Kuppboard VS Competitors</div>
+                <div class="acc-body">
+                    <div class="acc-inner">
+                        <table class="cmp">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="hl">KUPPBOARD</th>
+                                    <th>OTHERS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Organic Certified</td>
+                                    <td class="yes">✓ Yes</td>
+                                    <td class="no">✗ No</td>
+                                </tr>
+                                <tr>
+                                    <td>Chemical-Free Dyes</td>
+                                    <td class="yes">✓ Yes</td>
+                                    <td class="no">✗ Unknown</td>
+                                </tr>
+                                <tr>
+                                    <td>Temp Regulation</td>
+                                    <td class="yes">✓ Advanced</td>
+                                    <td class="no">✗ Standard</td>
+                                </tr>
+                                <tr>
+                                    <td>Thread Count</td>
+                                    <td class="yes">✓ 400+</td>
+                                    <td class="no">✗ 150-200</td>
+                                </tr>
+                                <tr>
+                                    <td>2-Way Zipper</td>
+                                    <td class="yes">✓ Yes</td>
+                                    <td class="no">✗ Snap Only</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="acc-item">
+                <div class="acc-head" onclick="togAcc(this)">Frequently Asked Questions</div>
+                <div class="acc-body">
+                    <div class="acc-inner">
+                        <p><strong>What ages does it fit?</strong><br>Available in sizes 0-3 months, 3-6 months, and
+                            6-12 months.</p><br>
+                        <p><strong>Is it machine washable?</strong><br>Yes! Machine wash cold with like colors. Tumble
+                            dry low.</p><br>
+                        <p><strong>What makes it different from regular cotton?</strong><br>Our GOTS-certified organic
+                            cotton is grown without synthetic pesticides. The Thermal-Regulate™ weave adapts to your
+                            baby's body temperature.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="acc-right">
+            <img src="https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Lifestyle">
+        </div>
+    </div>
+
+    <!-- ===== VIDEO REVIEWS ===== -->
+    <div class="vid-sec">
+        <h2>Reviews From Parents</h2>
+        <div class="vid-row">
+            <div class="vcard">
+                <div class="vimg"><img
+                        src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
+                        alt="R1">
+                    <div class="vplay">▶</div>
+                </div>
+                <div class="vinfo">
+                    <div class="vq">"My baby sleeps through the night now!"</div>
+                    <div class="vn">Sarah, 32</div>
+                </div>
+            </div>
+            <div class="vcard">
+                <div class="vimg"><img
+                        src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
+                        alt="R2">
+                    <div class="vplay">▶</div>
+                </div>
+                <div class="vinfo">
+                    <div class="vq">"The fabric quality is unlike anything else."</div>
+                    <div class="vn">Ahmed, 29</div>
+                </div>
+            </div>
+            <div class="vcard">
+                <div class="vimg"><img
+                        src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
+                        alt="R3">
+                    <div class="vplay">▶</div>
+                </div>
+                <div class="vinfo">
+                    <div class="vq">"No more rashes on my son's skin."</div>
+                    <div class="vn">Lisa, 35</div>
+                </div>
+            </div>
+            <div class="vcard">
+                <div class="vimg"><img
+                        src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
+                        alt="R4">
+                    <div class="vplay">▶</div>
+                </div>
+                <div class="vinfo">
+                    <div class="vq">"Best purchase for our newborn!"</div>
+                    <div class="vn">Mike, 40</div>
+                </div>
+            </div>
+            <div class="vcard">
+                <div class="vimg"><img
+                        src="https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
+                        alt="R5">
+                    <div class="vplay">▶</div>
+                </div>
+                <div class="vinfo">
+                    <div class="vq">"Wish I found this sooner."</div>
+                    <div class="vn">Emma, 27</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CUSTOMER REVIEWS ===== -->
+    <div class="rev-sec">
+        <h2>Customer Reviews</h2>
+        <div class="star-box">
+            <div class="big-num">4.9</div>
+            <div>
+                <div style="color:#f5a623;font-size:22px;margin-bottom:4px;">★★★★★</div>
+                <div style="font-size:12px;color:#666;">Based on 1,240 reviews</div>
+            </div>
+            <div class="bars">
+                <div class="bar-r"><span>5</span>
+                    <div class="bar-bg">
+                        <div class="bar-fl" style="width:88%"></div>
+                    </div>
+                </div>
+                <div class="bar-r"><span>4</span>
+                    <div class="bar-bg">
+                        <div class="bar-fl" style="width:8%"></div>
+                    </div>
+                </div>
+                <div class="bar-r"><span>3</span>
+                    <div class="bar-bg">
+                        <div class="bar-fl" style="width:3%"></div>
+                    </div>
+                </div>
+                <div class="bar-r"><span>2</span>
+                    <div class="bar-bg">
+                        <div class="bar-fl" style="width:1%"></div>
+                    </div>
+                </div>
+                <div class="bar-r"><span>1</span>
+                    <div class="bar-bg">
+                        <div class="bar-fl" style="width:0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rcard">
+            <div class="rh"><span class="rn">Amna K.<span class="rbadge">✓ Verified Buyer</span></span><span
+                    class="rd">Feb 15, 2026</span></div>
+            <div class="rs">★★★★★</div>
+            <div class="rt">This sleepsuit is absolutely amazing! My baby used to wake up sweating but this fabric keeps
+                him cool and comfortable. The zipper makes nighttime changes a breeze.</div>
+        </div>
+        <div class="rcard">
+            <div class="rh"><span class="rn">David R.<span class="rbadge">✓ Verified Buyer</span></span><span
+                    class="rd">Feb 10, 2026</span></div>
+            <div class="rs">★★★★★</div>
+            <div class="rt">I was skeptical about the price but the quality is phenomenal. The organic cotton is so soft
+                and the thermal regulation actually works. Our daughter sleeps peacefully.</div>
+        </div>
+        <div class="rcard">
+            <div class="rh"><span class="rn">Fatima S.<span class="rbadge">✓ Verified Buyer</span></span><span
+                    class="rd">Jan 28, 2026</span></div>
+            <div class="rs">★★★★☆</div>
+            <div class="rt">Beautiful fabric and great quality. Only reason for 4 stars is I wish there were more color
+                options. But the fit is perfect and my baby seems so comfortable.</div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="fgrid">
+            <div class="fcol">
+                <h4>Shop</h4><a href="#">Sleepsuits</a><a href="#">Bodysuits</a><a href="#">Bundles</a><a href="#">New
+                    Arrivals</a>
+            </div>
+            <div class="fcol">
+                <h4>Company</h4><a href="#">About Us</a><a href="#">Contact</a><a href="#">Careers</a>
+            </div>
+            <div class="fcol">
+                <h4>Support</h4><a href="#">FAQ</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Size
+                    Guide</a>
+            </div>
+            <div class="fcol">
+                <h4>Follow Us</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a><a
+                    href="#">YouTube</a>
+            </div>
+        </div>
+        <div class="fbot">© 2026 Kuppboard. All rights reserved.</div>
+    </footer>
+
+    <!-- Sticky Bar -->
+    <div class="sbar" id="sbar">
+        <div class="sbar-l">
+            <img src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=90"
+                alt="">
+            <div>
+                <div class="st">Cloud Sleepsuit</div>
+                <div class="sp">From $34.00</div>
+            </div>
+        </div>
+        <button class="atc" style="width:auto;padding:12px 30px;margin:0;font-size:13px;">ADD TO CART</button>
+    </div>
+
+    <script>
+        var imgs = [
+            "https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/6849568/pexels-photo-6849568.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800"
+        ];
+        function slide(i) {
+            document.getElementById('mainImg').src = imgs[i];
+            document.querySelectorAll('.dots span').forEach(function (d, j) { d.classList.toggle('active', j === i); });
+            document.querySelectorAll('.thumbs img').forEach(function (t, j) { t.classList.toggle('active', j === i); });
+        }
+        var td = [
+            'Our signature Cloud Sleepsuit is crafted from 100% GOTS-certified organic cotton. Designed with thermal-regulation technology, it keeps your baby at the optimal sleeping temperature throughout the night, while staying gentle on sensitive skin.',
+            '<ul><li>Regulates Body Temperature</li><li>Prevents Overheating</li><li>Protects Sensitive Skin</li><li>Reduces Night Waking</li><li>Chemical-Free Comfort</li></ul>',
+            '<ul><li>Better Sleep Quality</li><li>Reduced Skin Irritation</li><li>Eco-Friendly Production</li><li>Easy Diaper Changes</li><li>Long-Lasting Durability</li></ul>',
+            '<ul><li>Step 1: Unzip the dual-way zipper from bottom</li><li>Step 2: Place baby inside gently</li><li>Step 3: Zip up from bottom to top</li></ul>'
+        ];
+        function stab(i) {
+            document.querySelectorAll('.tab').forEach(function (t, j) { t.classList.toggle('active', j === i); });
+            document.getElementById('tp').innerHTML = td[i];
+        }
+        function bsel(el) {
+            document.querySelectorAll('.bcard').forEach(function (c) { c.classList.remove('sel'); });
+            el.classList.add('sel');
+        }
+        function togAcc(h) { h.parentElement.classList.toggle('open'); }
+        window.addEventListener('scroll', function () {
+            var a = document.getElementById('mainAtc');
+            var s = document.getElementById('sbar');
+            s.classList.toggle('show', a.getBoundingClientRect().bottom < 0);
+        });
+    </script>
+</body>
+
+</html>
