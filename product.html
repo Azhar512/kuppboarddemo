@@ -48,15 +48,17 @@
             justify-content: space-between;
             padding: 14px 50px;
             border-bottom: 1px solid transparent;
-            position: fixed;
+            position: absolute;
             width: 100%;
-            top: 0;
+            top: 34px;
             background: transparent;
             z-index: 9999;
-            transition: background 0.3s, border-bottom 0.3s;
+            transition: background 0.3s, border-bottom 0.3s, top 0.3s, position 0s;
         }
 
         .header.scrolled {
+            position: fixed;
+            top: 0;
             background: #fff;
             border-bottom: 1px solid var(--border);
         }
@@ -65,7 +67,7 @@
             font-size: 28px;
             font-weight: 900;
             letter-spacing: 5px;
-            color: #fff;
+            color: var(--navy);
             transition: color 0.3s;
         }
 
@@ -80,7 +82,7 @@
 
         .header-nav a {
             text-decoration: none;
-            color: #fff;
+            color: var(--navy);
             font-weight: 700;
             font-size: 15px;
             text-transform: uppercase;
@@ -101,7 +103,7 @@
             gap: 20px;
             align-items: center;
             font-size: 20px;
-            color: #fff;
+            color: var(--navy);
             transition: color 0.3s;
         }
 
@@ -1433,15 +1435,16 @@
             s.classList.toggle('show', a.getBoundingClientRect().bottom < 0);
         });
     </script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-    var header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-    } else {
-    header.classList.remove('scrolled');
-    }
-    });
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 

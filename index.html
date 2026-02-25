@@ -58,15 +58,17 @@
             justify-content: space-between;
             padding: 14px 50px;
             background: transparent;
-            position: fixed;
+            position: absolute;
             width: 100%;
-            top: 0;
+            top: 34px;
             z-index: 9999;
             border-bottom: 1px solid transparent;
-            transition: background 0.3s, border-bottom 0.3s;
+            transition: background 0.3s, border-bottom 0.3s, top 0.3s, position 0s;
         }
 
         .header.scrolled {
+            position: fixed;
+            top: 0;
             background: #fff;
             border-bottom: 1px solid var(--border);
         }
@@ -1126,15 +1128,16 @@
             });
         });
     </script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-    var header = document.querySelector('.header');
-    if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-    } else {
-    header.classList.remove('scrolled');
-    }
-    });
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 
