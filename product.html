@@ -64,9 +64,8 @@
         }
 
         .header-logo {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 5px;
+            display: flex;
+            align-items: center;
             color: var(--navy);
             transition: color 0.3s;
         }
@@ -1037,13 +1036,15 @@
 
     <!-- Header -->
     <div class="header">
-        <a href="index.html" style="text-decoration:none;">
-            <div class="header-logo">KUPPBOARD</div>
+        <a href="index.html" class="header-logo" aria-label="KUPPBOARD Home">
+            <svg viewBox="0 0 250 40" height="28" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="30" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28"
+                    letter-spacing="5">KUPPBOARD</text>
+            </svg>
         </a>
         <div class="header-nav">
             <a href="index.html">Products</a>
             <a href="#">Magazine</a>
-            <a href="#">Reviews</a>
             <a href="#">Support</a>
         </div>
         <div class="header-icons">
