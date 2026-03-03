@@ -144,7 +144,7 @@
             display: flex;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 100px 30px 0;
             min-height: calc(100vh - 100px);
         }
 
@@ -190,11 +190,38 @@
             background: rgba(255, 255, 255, 0.4);
             border-radius: 2px;
             cursor: pointer;
-            transition: 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .stories-bar span.active {
+        .stories-bar span::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
             background: #fff;
+            border-radius: 2px;
+        }
+
+        .stories-bar span.active::after {
+            animation: fillBar 5s linear forwards;
+        }
+
+        .stories-bar span.viewed::after {
+            width: 100%;
+            animation: none;
+        }
+
+        @keyframes fillBar {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
         }
 
         .dots {
@@ -1517,11 +1544,41 @@
             "https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=800",
             "https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=800"
         ];
+        var currentIndex = 0;
+        var slideInterval;
+
         function slide(i) {
+            currentIndex = i;
             document.getElementById('mainImg').src = imgs[i];
-            document.querySelectorAll('.stories-bar span').forEach(function (d, j) { d.classList.toggle('active', j === i); });
+
+            // Trigger reflow to restart CSS animations if clicking the active slide
+            document.querySelectorAll('.stories-bar span').forEach(function (s) {
+                s.style.animation = 'none';
+                s.offsetHeight;
+                s.style.animation = null;
+            });
+
+            document.querySelectorAll('.stories-bar span').forEach(function (d, j) {
+                d.classList.toggle('active', j === i);
+                d.classList.toggle('viewed', j < i);
+            });
             document.querySelectorAll('.thumbs img').forEach(function (t, j) { t.classList.toggle('active', j === i); });
+
+            resetAutoSlide();
         }
+
+        function nextSlide() {
+            var nextIndex = (currentIndex + 1) % imgs.length;
+            slide(nextIndex);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Initialize autoplay
+        resetAutoSlide();
         var td = [
             'Our signature Cloud Sleepsuit is crafted from 100% GOTS-certified organic cotton. Designed with thermal-regulation technology, it keeps your baby at the optimal sleeping temperature throughout the night, while staying gentle on sensitive skin.',
             '<ul><li>Regulates Body Temperature</li><li>Prevents Overheating</li><li>Protects Sensitive Skin</li><li>Reduces Night Waking</li><li>Chemical-Free Comfort</li></ul>',
