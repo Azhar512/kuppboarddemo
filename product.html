@@ -186,9 +186,9 @@
 
         .stories-bar span {
             flex: 1;
-            height: 3px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.4);
-            border-radius: 2px;
+            border-radius: 3px;
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -233,9 +233,9 @@
 
         .dots span {
             width: 40px;
-            height: 3px;
+            height: 6px;
             background: #d0d0d0;
-            border-radius: 2px;
+            border-radius: 3px;
             cursor: pointer;
             transition: 0.2s;
         }
@@ -354,8 +354,8 @@
             font-size: 14px;
             color: #555;
             line-height: 1.8;
-            margin-bottom: 30px;
-            min-height: 130px;
+            margin-bottom: 20px;
+            min-height: auto;
         }
 
         .tab-body ul {
@@ -382,7 +382,7 @@
         /* Bundles */
         .bundles {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
             margin-bottom: 22px;
         }
@@ -390,12 +390,14 @@
         .bcard {
             border: 2px solid var(--border);
             border-radius: 8px;
-            padding: 16px 18px;
+            padding: 12px 10px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            text-align: center;
             cursor: pointer;
             transition: 0.2s;
+            flex: 1;
         }
 
         .bcard:hover,
@@ -429,40 +431,44 @@
 
         .bcard-qty {
             font-weight: 800;
-            font-size: 15px;
+            font-size: 13px;
+            margin-bottom: 5px;
         }
 
         .badge {
             background: var(--blue);
             color: #fff;
-            font-size: 9px;
+            font-size: 8px;
             font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 3px;
+            padding: 2px 6px;
+            border-radius: 2px;
             text-transform: uppercase;
-            margin-left: 6px;
+            display: block;
+            margin: 4px auto 0;
+            width: fit-content;
         }
 
         .bcard-r {
-            text-align: right;
+            text-align: center;
+            margin-top: 5px;
         }
 
         .bcard-r .now {
             font-weight: 800;
-            font-size: 17px;
+            font-size: 15px;
+            display: block;
         }
 
         .bcard-r .was {
             text-decoration: line-through;
             color: #999;
-            font-size: 12px;
-            margin-left: 5px;
+            font-size: 11px;
         }
 
         .bcard-r .save {
             display: block;
             color: var(--red);
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
             margin-top: 2px;
         }
@@ -475,14 +481,15 @@
 
         .bwrap-inner {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
         }
 
         .bwrap-l {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .file-upload {
@@ -1380,125 +1387,20 @@
         </div>
     </div>
 
-    <!-- ===== VIDEO REVIEWS ===== -->
-    <div class="vid-sec">
-        <h2>Reviews From Parents</h2>
-        <div class="vid-row">
-            <div class="vcard">
-                <div class="vimg"><img
-                        src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
-                        alt="R1">
-                    <div class="vplay">▶</div>
-                </div>
-                <div class="vinfo">
-                    <div class="vq">"My baby sleeps through the night now!"</div>
-                    <div class="vn">Sarah, 32</div>
-                </div>
-            </div>
-            <div class="vcard">
-                <div class="vimg"><img
-                        src="https://images.pexels.com/photos/3845456/pexels-photo-3845456.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
-                        alt="R2">
-                    <div class="vplay">▶</div>
-                </div>
-                <div class="vinfo">
-                    <div class="vq">"The fabric quality is unlike anything else."</div>
-                    <div class="vn">Ahmed, 29</div>
-                </div>
-            </div>
-            <div class="vcard">
-                <div class="vimg"><img
-                        src="https://images.pexels.com/photos/6692082/pexels-photo-6692082.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
-                        alt="R3">
-                    <div class="vplay">▶</div>
-                </div>
-                <div class="vinfo">
-                    <div class="vq">"No more rashes on my son's skin."</div>
-                    <div class="vn">Lisa, 35</div>
-                </div>
-            </div>
-            <div class="vcard">
-                <div class="vimg"><img
-                        src="https://images.pexels.com/photos/3661263/pexels-photo-3661263.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
-                        alt="R4">
-                    <div class="vplay">▶</div>
-                </div>
-                <div class="vinfo">
-                    <div class="vq">"Best purchase for our newborn!"</div>
-                    <div class="vn">Mike, 40</div>
-                </div>
-            </div>
-            <div class="vcard">
-                <div class="vimg"><img
-                        src="https://images.pexels.com/photos/3771097/pexels-photo-3771097.jpeg?auto=compress&cs=tinysrgb&w=300&h=400"
-                        alt="R5">
-                    <div class="vplay">▶</div>
-                </div>
-                <div class="vinfo">
-                    <div class="vq">"Wish I found this sooner."</div>
-                    <div class="vn">Emma, 27</div>
-                </div>
-            </div>
+    <!-- ===== ReelUp Video Container ===== -->
+    <div class="reelup-container" style="max-width: 1280px; margin: 40px auto; padding: 0 30px;">
+        <div id="reelup-widget" style="width: 100%; min-height: 400px; background: #fafafa; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #aaa;">
+            [ ReelUp Video Widget Placeholder ]
         </div>
     </div>
 
-    <!-- ===== CUSTOMER REVIEWS ===== -->
+    <!-- ===== CUSTOMER REVIEWS (Connected to Shopify Plugin) ===== -->
     <div class="rev-sec">
         <h2>Customer Reviews</h2>
-        <div class="star-box">
-            <div class="big-num">4.9</div>
-            <div>
-                <div style="color:#f5a623;font-size:22px;margin-bottom:4px;">★★★★★</div>
-                <div style="font-size:12px;color:#666;">Based on 1,240 reviews</div>
+        <div id="shopify-product-reviews" data-id="{{ product.id }}">
+            <div style="text-align: center; padding: 40px; color: #ccc;">
+                [ Shopify Review Plugin Container ]
             </div>
-            <div class="bars">
-                <div class="bar-r"><span>5</span>
-                    <div class="bar-bg">
-                        <div class="bar-fl" style="width:88%"></div>
-                    </div>
-                </div>
-                <div class="bar-r"><span>4</span>
-                    <div class="bar-bg">
-                        <div class="bar-fl" style="width:8%"></div>
-                    </div>
-                </div>
-                <div class="bar-r"><span>3</span>
-                    <div class="bar-bg">
-                        <div class="bar-fl" style="width:3%"></div>
-                    </div>
-                </div>
-                <div class="bar-r"><span>2</span>
-                    <div class="bar-bg">
-                        <div class="bar-fl" style="width:1%"></div>
-                    </div>
-                </div>
-                <div class="bar-r"><span>1</span>
-                    <div class="bar-bg">
-                        <div class="bar-fl" style="width:0%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="rcard">
-            <div class="rh"><span class="rn">Amna K.<span class="rbadge">✓ Verified Buyer</span></span><span
-                    class="rd">Feb 15, 2026</span></div>
-            <div class="rs">★★★★★</div>
-            <div class="rt">This sleepsuit is absolutely amazing! My baby used to wake up sweating but this fabric keeps
-                him cool and comfortable. The zipper makes nighttime changes a breeze.</div>
-        </div>
-        <div class="rcard">
-            <div class="rh"><span class="rn">David R.<span class="rbadge">✓ Verified Buyer</span></span><span
-                    class="rd">Feb 10, 2026</span></div>
-            <div class="rs">★★★★★</div>
-            <div class="rt">I was skeptical about the price but the quality is phenomenal. The organic cotton is so soft
-                and the thermal regulation actually works. Our daughter sleeps peacefully.</div>
-        </div>
-        <div class="rcard">
-            <div class="rh"><span class="rn">Fatima S.<span class="rbadge">✓ Verified Buyer</span></span><span
-                    class="rd">Jan 28, 2026</span></div>
-            <div class="rs">★★★★☆</div>
-            <div class="rt">Beautiful fabric and great quality. Only reason for 4 stars is I wish there were more color
-                options. But the fit is perfect and my baby seems so comfortable.</div>
         </div>
     </div>
 

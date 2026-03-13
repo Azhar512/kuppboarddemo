@@ -185,16 +185,42 @@
             padding: 20px;
         }
 
-        .hero h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 90px;
-            font-weight: 700;
+        .banner__heading {
+            /* 1. Universal Font Stack */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            line-height: 1;
             margin-bottom: 30px;
-            color: transparent;
-            -webkit-text-stroke: 2px #fff;
+            
+            /* 2. Responsive Size (Scales based on screen width) */
+            font-size: clamp(2.5rem, 8vw, 5rem); 
+
+            /* 3. Base Fallback (For browsers that don't support blur) */
+            color: rgba(255, 255, 255, 0.85) !important;
+
+            /* 4. Modern Glass Effect (Overrides the fallback if supported) */
+            @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+                color: rgba(255, 255, 255, 0.4) !important;
+                -webkit-backdrop-filter: blur(12px) saturate(160%);
+                backdrop-filter: blur(12px) saturate(160%);
+                mix-blend-mode: overlay;
+            }
+
+            /* 5. Performance optimization */
+            will-change: backdrop-filter;
+            pointer-events: none; /* Allows clicks to pass through to the video if needed */
+        }
+
+        /* Mobile-Specific Adjustment */
+        @media screen and (max-width: 749px) {
+            .banner__heading {
+                /* Slightly less blur on mobile to save battery/performance */
+                -webkit-backdrop-filter: blur(6px);
+                backdrop-filter: blur(6px);
+                letter-spacing: -0.01em;
+            }
         }
 
         .hero-btn {
@@ -217,8 +243,9 @@
 
         /* ===== PRESS LOGOS SLIDER ===== */
         .logos {
-            padding: 35px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 25px 0;
+            background: var(--navy);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
             position: relative;
         }
@@ -233,8 +260,8 @@
 
         .logos-track img {
             height: 22px;
-            opacity: 0.4;
-            filter: grayscale(1);
+            opacity: 0.8;
+            filter: brightness(0) invert(1);
         }
 
         @keyframes scroll {
@@ -1061,7 +1088,7 @@
             src="https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1&mute=1&loop=1&playlist=aqz-KE-bpKQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
             frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         <div class="hero-content">
-            <h1>PREMIUM COMFORT FOR YOUR BABY</h1>
+            <h1 class="banner__heading">PREMIUM COMFORT FOR YOUR BABY</h1>
             <a href="#products" class="hero-btn">OUR PRODUCTS</a>
         </div>
     </section>
@@ -1250,36 +1277,7 @@
         </div>
     </section>
 
-    <!-- ===== 5. BRAND AUTHORITY ===== -->
-    <section class="authority">
-        <div class="auth-text">
-            <h2>SPECIFICALLY DESIGNED FOR BABY COMFORT</h2>
-            <p>Baby comfort should go beyond the basic. That's why we formulated Kuppboard with advanced organic textile
-                science. Every thread, every stitch, every dye is chosen to protect your baby's sensitive skin while
-                keeping them at the perfect temperature.</p>
-            <p style="margin-bottom:30px;">Our GOTS-certified cotton is grown without synthetic pesticides, processed
-                without harmful chemicals, and tested against 1,000+ known skin irritants.</p>
-            <a href="product.html" class="auth-btn">LEARN MORE</a>
-        </div>
-        <div class="auth-img">
-            <img src="https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=700"
-                alt="Science">
-        </div>
-    </section>
 
-    <!-- ===== 6. FULL WIDTH VIDEO / ADD TO CART ===== -->
-    <section class="video-container">
-        <!-- Using a placeholder video from Pexels, replace src with actual video URL -->
-        <video autoplay muted loop playsinline>
-            <source src="https://videos.pexels.com/video-files/3011387/3011387-hd_1920_1080_24fps.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-        <div class="video-overlay"></div>
-        <div class="video-content">
-            <h2>EXPERIENCE KUPPBOARD</h2>
-            <button class="auth-btn">ADD TO CART</button>
-        </div>
-    </section>
 
     <!-- ===== 9. NEWSLETTER ===== -->
     <section class="newsletter">
