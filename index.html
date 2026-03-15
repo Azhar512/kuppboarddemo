@@ -16,7 +16,7 @@
 
         :root {
             --navy: #001B34;
-            --blue: #52BBE8;
+            --blue: #001B34; /* Standardized to Navy */
             --grey: #F6F6F6;
             --border: #e1e1e9;
             --dark: #0a0a2e;
@@ -108,7 +108,8 @@
         }
 
         .header-nav a:hover {
-            color: var(--blue);
+            color: var(--navy);
+            opacity: 0.7;
         }
 
         .header-icons {
@@ -408,7 +409,8 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--blue);
+            color: var(--navy);
+            opacity: 0.6;
             margin-bottom: 8px;
         }
 
@@ -549,7 +551,7 @@
 
         .prod-card-price {
             font-size: 14px;
-            color: var(--blue);
+            color: var(--navy);
             font-weight: 700;
             margin-bottom: 10px;
         }
@@ -835,7 +837,7 @@
         }
 
         .nl-form input:focus {
-            border-color: var(--blue);
+            border-color: var(--navy);
         }
 
         .nl-form button {

@@ -15,8 +15,8 @@
         }
 
         :root {
-            --navy: #050446;
-            --blue: #00AEEF;
+            --navy: #001B34;
+            --blue: #001B34; /* Standardized to Navy */
             --red: #D0021B;
             --bg-grey: #F1F1F1;
             --border: #e1e1e9;
@@ -98,7 +98,8 @@
         }
 
         .header-nav a:hover {
-            color: var(--blue);
+            color: var(--navy);
+            opacity: 0.7;
         }
 
         .header-icons {
@@ -281,7 +282,8 @@
         }
 
         .p-brand {
-            color: var(--blue);
+            color: var(--navy);
+            opacity: 0.7;
             font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
@@ -378,7 +380,7 @@
 
         .tab-body ul li::before {
             content: "✓";
-            color: var(--blue);
+            color: var(--navy);
             font-weight: 900;
             font-size: 16px;
         }
@@ -406,8 +408,8 @@
 
         .bcard:hover,
         .bcard.sel {
-            border-color: var(--blue);
-            background: #f0faff;
+            border-color: var(--navy);
+            background: #f8f9fa;
         }
 
         .radio {
@@ -422,7 +424,7 @@
         }
 
         .bcard.sel .radio {
-            border-color: var(--blue);
+            border-color: var(--navy);
         }
 
         .bcard.sel .radio::after {
@@ -430,7 +432,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: var(--blue);
+            background: var(--navy);
         }
 
         .bcard-qty {
@@ -440,7 +442,7 @@
         }
 
         .badge {
-            background: var(--blue);
+            background: var(--navy);
             color: #fff;
             font-size: 8px;
             font-weight: 800;
@@ -1145,7 +1147,7 @@
         <div class="header-icons">
             <span style="cursor:pointer;">👤</span>
             <span style="cursor:pointer;">🛒<sup
-                    style="font-size:10px;color:var(--blue);font-weight:900;">0</sup></span>
+                    style="font-size:10px;color:var(--navy);font-weight:900;">0</sup></span>
             <span class="menu-toggle" onclick="toggleMenu()">☰</span>
         </div>
     </div>
