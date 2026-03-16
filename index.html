@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUPPBOARD | Premium Baby Clothing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Montserrat+Alternates:wght@400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Montserrat+Alternates:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap"
         rel="stylesheet">
     <style>
         * {
@@ -161,11 +161,12 @@
             height: 90vh;
             min-height: 600px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            align-items: flex-end;
+            justify-content: flex-start;
+            text-align: left;
             overflow: hidden;
             background: #000;
+            padding: 80px 10%;
         }
 
         .hero-bg {
@@ -186,36 +187,29 @@
             position: relative;
             z-index: 2;
             color: #fff;
-            max-width: 900px;
-            padding: 20px;
+            max-width: 1000px;
+            /* No padding needed here due to hero padding */
         }
 
         .banner__heading {
-            /* 1. Universal Font Stack */
-            font-family: 'Montserrat Alternates', sans-serif !important;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-weight: 400;
+            line-height: 0.9;
+            letter-spacing: 0.02em;
             text-transform: uppercase;
-            margin-bottom: 30px;
-            
-            /* 2. Responsive Size (Scales based on screen width) */
-            font-size: clamp(2.5rem, 8vw, 5rem); 
+            margin-bottom: 25px;
+            font-size: clamp(4rem, 12vw, 8rem);
+            color: #fff !important;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
 
-            /* 3. Base Fallback (For browsers that don't support blur) */
-            color: rgba(255, 255, 255, 0.85) !important;
+        .banner__heading span {
+            display: block;
+        }
 
-            /* 4. Modern Glass Effect (Overrides the fallback if supported) */
-            @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-                color: rgba(255, 255, 255, 0.4) !important;
-                -webkit-backdrop-filter: blur(12px) saturate(160%);
-                backdrop-filter: blur(12px) saturate(160%);
-                mix-blend-mode: overlay;
-            }
-
-            /* 5. Performance optimization */
-            will-change: backdrop-filter;
-            pointer-events: none; /* Allows clicks to pass through to the video if needed */
+        .banner__heading .highlight {
+            color: #52BBE8; /* Light blue from the reference image */
         }
 
         /* Mobile-Specific Adjustment */
@@ -1121,7 +1115,10 @@
             src="https://www.youtube.com/embed/7cN8Z6fEOP4?autoplay=1&mute=1&loop=1&playlist=7cN8Z6fEOP4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
             frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         <div class="hero-content">
-            <h1 class="banner__heading">Science Meets K-Beauty</h1>
+            <h1 class="banner__heading">
+                <span class="highlight">Science Meets</span>
+                <span>K-Beauty</span>
+            </h1>
             <a href="#products" class="hero-btn">OUR PRODUCTS</a>
         </div>
     </section>
