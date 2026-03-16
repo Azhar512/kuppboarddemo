@@ -147,17 +147,32 @@
         /* ===== HERO / PRODUCT TOP ===== */
         .product-hero {
             display: flex;
+            gap: 0;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 100px 30px 0;
+            padding: 90px 5% 0; /* Standardized side padding */
             min-height: calc(100vh - 100px);
+        }
+
+        @media (max-width: 1024px) {
+            .product-hero {
+                padding: 80px 20px 0;
+                flex-direction: column;
+            }
         }
 
         /* Gallery */
         .product-gallery {
             flex: 0 0 55%;
-            padding: 30px 30px 30px 0;
+            padding: 30px 5% 30px 0;
             position: relative;
+        }
+
+        @media (max-width: 1024px) {
+            .product-gallery {
+                padding: 20px 0;
+                width: 100%;
+            }
         }
 
         .main-slide {
@@ -274,11 +289,18 @@
         /* Info Sidebar */
         .product-info {
             flex: 0 0 45%;
-            padding: 40px 0 40px 50px;
+            padding: 40px 0 40px 5%; /* Changed to 5% for better desktop-tablet transition */
             position: sticky;
             top: 90px;
             height: fit-content;
             align-self: flex-start;
+        }
+
+        @media (max-width: 1024px) {
+            .product-info {
+                padding: 30px 0 !important;
+                position: static !important;
+            }
         }
 
         .p-brand {
@@ -901,7 +923,13 @@
         footer {
             background: var(--navy);
             color: #fff;
-            padding: 50px 50px 25px;
+            padding: 50px 5% 25px;
+        }
+
+        @media (max-width: 600px) {
+            footer {
+                padding: 40px 20px 20px;
+            }
         }
 
         .fgrid {
@@ -951,7 +979,7 @@
             width: 100%;
             background: #fff;
             border-top: 1px solid var(--border);
-            padding: 12px 50px;
+            padding: 10px 5%; /* Standardized side padding */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -959,6 +987,12 @@
             transform: translateY(100%);
             transition: 0.4s ease;
             box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            .sbar {
+                padding: 10px 15px;
+            }
         }
 
         .sbar.show {

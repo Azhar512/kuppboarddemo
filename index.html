@@ -158,15 +158,23 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            height: 95vh;
-            min-height: 600px;
+            height: 90vh; /* Reduced from 95vh for better mobile balance */
+            min-height: 500px;
             display: flex;
             align-items: flex-end;
             justify-content: flex-start;
             text-align: left;
             overflow: hidden;
             background: #000;
-            padding: 100px 5%;
+            padding: 60px 5%;
+        }
+
+        @media (max-width: 749px) {
+            .hero {
+                height: 70vh;
+                min-height: 400px;
+                padding: 40px 20px;
+            }
         }
 
         .hero-bg {
@@ -252,10 +260,17 @@
 
         .logos-track {
             display: flex;
-            gap: 100px;
+            gap: 60px; /* Reduced from 100px for tighter mobile flow */
             align-items: center;
             animation: scroll 40s linear infinite;
             width: max-content;
+        }
+
+        @media (max-width: 600px) {
+            .logos-track {
+                gap: 40px;
+                animation: scroll 20s linear infinite; /* Faster scroll for shorter track */
+            }
         }
 
         .logos-track span {
@@ -280,9 +295,15 @@
         /* ===== SECTION HEADERS ===== */
         .sec-head {
             text-align: center;
-            padding: 80px 20px 50px;
+            padding: 60px 20px 40px;
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .sec-head {
+                padding: 40px 20px 30px;
+            }
         }
 
         .sec-head h2 {
@@ -339,9 +360,15 @@
 
         /* ===== BEST SELLERS ===== */
         .bestsellers {
-            padding: 0 60px 80px;
+            padding: 0 5% 60px;
             max-width: 1300px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .bestsellers {
+                padding: 0 20px 40px;
+            }
         }
 
         .bs-grid {
@@ -360,8 +387,14 @@
         }
 
         .bs-grid .bs-card {
-            flex: 0 0 320px;
+            flex: 0 0 280px; /* Slightly smaller to fit mobile better */
             scroll-snap-align: start;
+        }
+
+        @media (max-width: 600px) {
+            .bs-grid .bs-card {
+                flex: 0 0 240px;
+            }
         }
 
         .bs-card {
@@ -483,7 +516,13 @@
         .prod-grid-wrap {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 60px;
+            padding: 0 5%;
+        }
+
+        @media (max-width: 600px) {
+            .prod-grid-wrap {
+                padding: 0 20px;
+            }
         }
 
         .prod-grid {
@@ -574,9 +613,18 @@
             display: flex;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 100px 50px;
+            padding: 80px 5%;
             gap: 60px;
             align-items: center;
+        }
+
+        @media (max-width: 1024px) {
+            .authority {
+                flex-direction: column;
+                padding: 60px 20px;
+                text-align: center;
+                gap: 40px;
+            }
         }
 
         .auth-text {
@@ -795,8 +843,17 @@
         /* ===== NEWSLETTER ===== */
         .newsletter {
             background: var(--grey);
-            padding: 80px 50px;
+            padding: 60px 5%;
             text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .newsletter {
+                padding: 40px 20px;
+            }
+            .newsletter h2 {
+                font-size: 28px;
+            }
         }
 
         .newsletter h2 {
@@ -852,15 +909,28 @@
         footer {
             background: var(--dark);
             color: #fff;
-            padding: 60px 50px 30px;
+            padding: 60px 5% 30px;
+        }
+
+        @media (max-width: 600px) {
+            footer {
+                padding: 40px 20px 20px;
+            }
         }
 
         .f-grid {
             display: flex;
-            gap: 60px;
+            gap: 40px;
             max-width: 1300px;
             margin: 0 auto 40px;
             flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            .f-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
         }
 
         .f-col {
