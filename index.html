@@ -216,10 +216,8 @@
         /* Mobile-Specific Adjustment */
         @media screen and (max-width: 749px) {
             .banner__heading {
-                /* Slightly less blur on mobile to save battery/performance */
-                -webkit-backdrop-filter: blur(6px);
-                backdrop-filter: blur(6px);
                 letter-spacing: -0.01em;
+                margin-bottom: 20px;
             }
         }
 
@@ -958,9 +956,7 @@
 
         /* ===== RESPONSIVE ===== */
         @media(max-width:1024px) {
-            .hero h1 {
-                font-size: 44px;
-            }
+            /* Removed redundant hero h1 size to allow clamp() to work */
 
             .mag-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1006,9 +1002,7 @@
                 min-height: 100%;
             }
 
-            .hero h1 {
-                font-size: 32px;
-            }
+            /* Removed redundant hero h1 size */
 
             .mag-grid {
                 grid-template-columns: 1fr;
