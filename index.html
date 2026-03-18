@@ -224,8 +224,14 @@
         /* Mobile-Specific Adjustment */
         @media screen and (max-width: 749px) {
             .banner__heading {
+                font-size: clamp(2.5rem, 10vw, 4rem); /* Reduced from 4rem-8rem for mobile */
                 letter-spacing: -0.01em;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
+            }
+            .hero-btn {
+                padding: 12px 30px; /* Smaller button for mobile */
+                font-size: 11px;
+                letter-spacing: 1px;
             }
         }
 
